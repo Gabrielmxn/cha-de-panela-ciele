@@ -17,10 +17,13 @@ export function Header() {
         <div className={`flex flex-col justify-center items-center -mt-6 text-gray-100`}>
           <h2 className={`${holtwood.className} text-2xl`}>Charraiá</h2>
           <span className='text-xs'>DE PANELA</span>
+          <h2 className={`${holtwood.className} text-yellow-400 drop-shadow-2xl text-center text-xl`}>Graciele e Daniel</h2>
+          <span className='text-xs text-yellow-400 drop-shadow-2xl text-center my-2'>Vista o seu mió traje, vai ser bão de mais da conta sô!</span>
+          <span className='text-xs text-yellow-400  drop-shadow-2xl text-center '>Rua Ibicui 130 Fundos, te espero!</span>
         </div>
       </div>
       <Image className='absolute left-2 -bottom-8' src={balaoRight} alt="" width={61.86} height={125.67} />
       <Image className='absolute right-2 -bottom-8' src={balaoLeft} alt="" width={61.86} height={125.67} />
-    </header>
+    </header >
   )
 }
