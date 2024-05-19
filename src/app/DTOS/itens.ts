@@ -13,6 +13,6 @@ export interface CreateItemDTOS {
   strock: number
   description: string
   name?: string
-  imgFile: File
+  imgFile: FileList
   important?: boolean
 }

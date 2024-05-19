@@ -19,7 +19,7 @@ interface FormProps {
   strock: number
   description: string
   name?: string
-  imgFile: File
+  imgFile: FileList
   important?: string
 
 }
@@ -39,9 +39,6 @@ export default function CadastrarItem() {
   function handleFormUpload(data: FormProps) {
     const formData = new FormData()
     formData.append('image', data.imgFile[0])
-    console.log(Array.from(formData))
-
-    console.log(data)
 
     mutate({
       ...data,
