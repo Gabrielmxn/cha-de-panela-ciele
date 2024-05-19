@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Charraiá",
   description: "Charraiá da Graciele e Daniel",
+  icons: {
+    icon: '/chapeu.svg'
+  }
 };
 
 export default function RootLayout({
