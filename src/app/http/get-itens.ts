@@ -1,3 +1,4 @@
+'use client'
 import { ItemsDTOS } from "../DTOS/itens";
 import { api } from "../lib/axios";
 

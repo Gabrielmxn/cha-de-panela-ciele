@@ -13,13 +13,15 @@ export default function Home() {
     queryKey: ['items'],
     queryFn: getItens
   })
+
+  console.log(itens)
   return (
     <main>
       <Header />
 
       <div className="grid grid-cols-2 justify-center items-stretch gap-4 mt-8 lg:flex lg:flex-wrap lg:justify-center text-center p-2">
         {
-          itens && itens.map(resp => {
+          isFetching ? <span>Carregando...</span> : itens && itens.map(resp => {
             return (
               <Card
                 key={resp.id}

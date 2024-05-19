@@ -1,3 +1,4 @@
+'use client'
 import { api } from "../lib/axios";
 
 export async function toChooseItem(id: string){
