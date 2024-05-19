@@ -85,7 +85,7 @@ export default function CadastrarItem() {
       </form>
 
       <div className="fixed flex justify-center items-center flex-col gap-2 top-0 right-0 bg-white">
-        {isSuccess && <Toast />}
+        {isSuccess && <Toast description="Produto cadastrado com sucesso" />}
       </div>
 
     </div>

@@ -7,6 +7,7 @@ import { Dropdown } from './dropdown'
 import { useMutation } from '@tanstack/react-query'
 import { toChooseItem } from '../http/to-choose-item'
 import { queryClient } from '../lib/react-query'
+import { Toast } from './toast'
 
 interface CardProps {
   id: string
@@ -22,13 +23,26 @@ interface CardProps {
 //Fritadeira Air Fryer Pfr15pg Gourmet 4,4l Black Philco 110v
 export function Card({ description, id, imgItem, totalItems, totalSelection, name, important = false }: CardProps) {
   const [dropDown, setDropDown] = useState(false)
-  const { mutate } = useMutation({
+  const [message, setMessage] = useState('')
+  const { mutate, isSuccess, isError } = useMutation({
     mutationFn: (id: string) => toChooseItem(id),
     onSuccess: (data) => {
-      queryClient.invalidateQueries({
-        queryKey: ['items'],
-        refetchType: 'active'
-      });
+      setMessage('Item escolhido com sucesso!')
+
+      setTimeout(() => {
+        setMessage('')
+
+        queryClient.invalidateQueries({
+          queryKey: ['items'],
+          refetchType: 'active'
+        });
+      }, 5000)
+    },
+    onError: (data) => {
+      setMessage('Esse item já foi escolhido por outra pessoa. Escolha outro item')
+      setTimeout(() => {
+        setMessage('')
+      }, 3000)
     }
   })
   function handleSelectItem(idItem: string) {
@@ -57,7 +71,9 @@ export function Card({ description, id, imgItem, totalItems, totalSelection, nam
         setDropDown={setDropDown}
         nameItem={description}
       />}
-
+      <div className="fixed flex justify-center items-center flex-col gap-2 top-0 right-0 bg-white">
+        {message !== '' && <Toast className={message !== 'Item escolhido com sucesso' ? 'text-red-500' : ''} description={message} />}
+      </div>
     </div>
   )
 }
