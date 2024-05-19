@@ -55,7 +55,7 @@ export function Card({ description, id, imgItem, totalItems, totalSelection, nam
       {dropDown && <Dropdown
         handleSelectItem={() => handleSelectItem(id)}
         setDropDown={setDropDown}
-        nameItem={name}
+        nameItem={description}
       />}
 
     </div>
